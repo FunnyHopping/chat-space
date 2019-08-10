@@ -2,11 +2,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, foreign_key: false|
-|email|text|null: false, foreign_key: false|
-|password|string|null: false, foreign_key: false|
+|nickname|string|null: false|
+|email|text|null: false|
+|password|string|null: false|
 
 ### Association
+- has_many :groups_users
 - has_many :groups through: :groups_users
 - has_many :messages
 
@@ -14,13 +15,25 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, foreign_key: false|
+|name|string|null: false|
 
 ### Association
+- has_many :groups_users
 - has_many :users through: :groups_users
 - has_many :messages
 
 ## Messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|text||
+|text|text||
+
+### Association
+- belongs_to :user
+- belongs_to :group
+
+##Groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|

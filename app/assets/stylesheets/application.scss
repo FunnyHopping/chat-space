@@ -1,7 +1,8 @@
 @import "./reset";
+@import "font-awesome";
 
-* {
-  box-sizing: border-box;
+.body {
+  width: 100vw;
 }
 
 .chat-side {
@@ -15,12 +16,30 @@
   }
   .groups {
     background-color: #2f3e51;
-    height: calc(100vw - 100px);
-    padding: 0 20px;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    padding: 20px 20px 0;
   }
 }
 
 .chat-main {
   width: calc(100vw - 300px);
   float: left;
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+    height: 100px;
+    padding: 0 40px;
+  }
+  .messages {
+    background-color: #fafafa;
+    padding: 46px 40px 0;
+    height: calc(100vh - 190px);
+    overflow: scroll;
+  }
+  .form {
+    height: 90px;
+    background-color: #DDDDDD;
+  }
 }

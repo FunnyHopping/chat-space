@@ -1,1 +1,26 @@
 @import "./reset";
+
+* {
+  box-sizing: border-box;
+}
+
+.chat-side {
+  width: 300px;
+  color: #ffffff;
+  float: left;
+  .side-header {
+    background-color: #253141;
+    height: 100px;
+    padding: 0 20px;
+  }
+  .groups {
+    background-color: #2f3e51;
+    height: calc(100vw - 100px);
+    padding: 0 20px;
+  }
+}
+
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+}

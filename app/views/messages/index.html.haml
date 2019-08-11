@@ -13,14 +13,24 @@
             = link_to "/users/####/edit" do
               = fa_icon 'cog'
     .groups
+      -# 最後に部分テンプレ化
       = link_to "/groups/####/message" do
         .group
           %p.group__group-name
             group_name
           %p.group__latest-message
-            latest-message
-          
+            latest_message
   .chat-main
     .main-header
+      .main-header__left-box
+        %h2{data_group_id: "####", class: "main-header__left-box__current-group"}
+          group_name
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member
+            member_name
+      = link_to "/groups/####/edit" do
+        .main-header__edit-btn
+          Edit
     .messages
     .form

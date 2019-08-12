@@ -45,3 +45,10 @@
           testext
     -# end
     .form
+      %form{class: "new_message", id: "new_message", action: "/groups/####/messages", method: 'post'}
+        .input-box
+          %input.input-box__text{placeholder: "type a message", type: "text"}
+          %label.input-box__image{for: "message_image"}
+            = fa_icon "image"
+            %input.input-box__image__file{type: "file", id: "message_image"}
+        %input.submit-btn{value: "Send", type: "submit"}

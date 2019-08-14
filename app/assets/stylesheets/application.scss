@@ -1,8 +1,9 @@
-@import "./reset";
+@import "config/reset";
 @import "font-awesome";
 @import "config/colors";
 @import "modules/user";
 @import "modules/flash";
+@import "modules/group";
 
 * {
   box-sizing: border-box;
@@ -84,6 +85,7 @@ a {
         font-size: 20px;
         color: #333333;
         padding-bottom: 15px;
+        margin-bottom: 0;
       }
       &__member-list {
         display: flex;

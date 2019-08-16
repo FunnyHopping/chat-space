@@ -1,8 +1,9 @@
-@import "./reset";
+@import "config/reset";
 @import "font-awesome";
 @import "config/colors";
 @import "modules/user";
 @import "modules/flash";
+@import "modules/group";
 
 * {
   box-sizing: border-box;
@@ -56,7 +57,6 @@ a {
     overflow: scroll;
     padding: 20px 20px 0;
     .group {
-
       margin-bottom: 40px;
       &__group-name {
         font-size: 15px;
@@ -84,6 +84,7 @@ a {
         font-size: 20px;
         color: #333333;
         padding-bottom: 15px;
+        margin-bottom: 0;
       }
       &__member-list {
         display: flex;

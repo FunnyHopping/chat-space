@@ -1,6 +1,8 @@
 = link_to "/groups/####/message" do
   .group
-    %p.group__group-name
-      group_name
-    %p.group__latest-message
-      latest_message
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .group__name
+          = group.name
+        .group__message
+          メッセージはまだありません。

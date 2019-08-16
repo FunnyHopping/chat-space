@@ -3,12 +3,13 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2{data_group_id: "####", class: "main-header__left-box__current-group"}
-          group_name
+        %h2{data_group_id: "#{@group.id}", class: "main-header__left-box__current-group"}
+          = @group.name
         %ul.main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member
-            member_name
+          - @group.users.each do |user|
+            %li.main-header__left-box__member-list__member
+              = user.name
       = link_to "/groups/####/edit" do
         .main-header__edit-btn
           Edit

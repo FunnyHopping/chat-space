@@ -1,24 +1,28 @@
 $(function(){
-  function buildHTML(message){
-    var html = `<div class="message">
+    function buildHTML(message){
+    var image = ""
+    message.image ? image = `<img　class="message__image" src="${message.image}">` : image = ""
+
+    var html = `<div class="message" data_message_id="${message.id}">
                   <div class="message__upper-info">
-                    <p class="message__upper-info__talker">${message.user.name}</p>
-                    <p class="message__upper-info__date">${message.created_at.strftime("%Y/%m/%d %H:%M")}</p>
+                    <p class="message__upper-info__talker">
+                      ${message.name}
+                    </p>
+                    <p class="message__upper-info__date">
+                      ${message.date}
+                    </p>
                   </div>
-                <% if message.content.present? %>
-                  <p class="message__text">${message.content}</p>
-                <% end %>
-                <% if message.image.present? %>
-                  <%= image_tag ${message.image}, class: 'message__image' %>
-                <% end %>
+                  <p class="message__text">
+                    ${message.content}
+                  </p>
+                  ${image}
                 </div>`
     return html;
   }
-  $("#new_message").on('submit', function(e){
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
-    // debugger;
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -27,13 +31,18 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(message){
+      var html = buildHTML(message);
       $('.messages').append(html)
       $('.message_content').val('')
+      $('form')[0].reset();
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('error') //kari
     })
-  })
-})
+    .always(() => {
+      $(".submit-btn").removeAttr("disabled");
+    });
+  });
+});

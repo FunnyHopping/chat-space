@@ -1,4 +1,4 @@
-.message{data_message_id: "####"}
+.message{data_message_id: "#{message.id}"}
   .message__upper-info
     %p.message__upper-info__talker
       = message.user.name
@@ -7,4 +7,4 @@
   - if message.content.present?
     %p.message__text
       = message.content
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+  = image_tag message.image.url, class: 'message__image' if message.image.present?

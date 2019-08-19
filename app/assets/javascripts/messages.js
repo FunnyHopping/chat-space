@@ -39,7 +39,7 @@ $(function(){
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
-      alert('error') //kari
+      alert('メッセージを入力してね') //kari
     })
     .always(() => {
       $(".submit-btn").removeAttr("disabled");

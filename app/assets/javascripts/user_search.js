@@ -33,6 +33,9 @@ $(function() {
       if (users.length === 0) {
         appendList('<div class="chat-group-user clearfix"><p class="chat-group-user__name">一致するユーザーがいません。</p>')
       }
+    })
+    .fail(function() {
+      alert('検索に失敗しました。')
     });
     prelist = list
   });

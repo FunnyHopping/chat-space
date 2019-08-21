@@ -5,16 +5,42 @@
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
-  .chat-group-form__field
-    .chat-group-form__field--left
-      = f.label :name, class: 'chat-group-form__label', for: 'group_name'
-    .chat-group-form__field--right
-      = f.text_field :name, id: 'group_name', class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label :name, for: 'user-search-field', class: 'chat-group-form__label' do
+      = f.label :name, class: 'chat-group-form__label', for: 'group_name' do
+        グループ名
+    .chat-group-form__field--right
+      = f.text_field :name, id: 'group_name', class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label{for: 'user-search-field', class: 'chat-group-form__label'}
         チャットメンバーを追加
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :name, id: 'user-search-field', class: 'chat-group-form__input', placeholder: '追加したいユーザー名を入力してください', type: 'text'
+        %input.chat-group-form__input{name: 'search', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', type: 'text'}
       #user-search-result
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :チャットメンバー, class: 'chat-group-form__label', for: 'members' 
+    .chat-group-form__field--right
+      .chat-group-users.js-add-user
+        - group.users.each do |user|
+          -if user.id != current_user.id
+            .chat-group-user.clearfix.js-chat-member{id: "#{user.id}"}
+              %input{name: "group[user_ids][]", :type => "hidden", :value => "#{user.id}", id: "group_user_ids"}
+              %p.chat-group-user__name
+                =user.name
+              %a.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
+          -else
+            .chat-group-user.clearfix.js-chat-member{id: "#{current_user.id}"}
+              %input{name: "group[user_ids][]", :type => "hidden", :value => "#{current_user.id}", id: "group_user_ids"}
+              %p.chat-group-user__name
+                =current_user.name
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit class: 'chat-group-form__action-btn'

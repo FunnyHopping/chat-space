@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
   $('#user-search-field').on('keyup', function(e) {
-  
     function buildListHtml(user) {
       var listHtml = `<div class="chat-group-user clearfix">
                     <p class="chat-group-user__name">${user.name}</p>
@@ -55,8 +54,8 @@ $(document).on('turbolinks:load', function() {
       return memberHtml;
     }
 
-    var userId = $(this).attr('data-user-id')
-    var userName = $(this).attr('data-user-name')
+    var userId = $(this).data('userId')
+    var userName = $(this).data('userName')
 
     var memberHtml = buildMemberHtml(userId, userName)
     $('.js-add-user').append(memberHtml);

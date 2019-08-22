@@ -1,9 +1,9 @@
-.message{data_message_id: "#{message.id}"}
+.message(data-message_id= "#{message.id}")
   .message__upper-info
     %p.message__upper-info__talker
       = message.user.name
     %p.message__upper-info__date
-      = message.created_at.strftime("%Y/%m/%d %H:%M")
+      = message.created_at.strftime("%Z %Y/%m/%d %H:%M")
   - if message.content.present?
     %p.message__text
       = message.content

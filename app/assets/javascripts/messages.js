@@ -33,7 +33,6 @@ $(document).on('turbolinks:load', function(){
       $('.messages').append(html)
       $('form')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      debugger;
     })
     .fail(function(){
       alert('メッセージを入力してね') //kari
@@ -55,7 +54,6 @@ $(document).on('turbolinks:load', function(){
       var insertHtml = '';
       $.each(messages, function(index, message) {
         insertHtml = buildHTML(message);
-        debugger;
         $('.messages').append(insertHtml);
       })
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');

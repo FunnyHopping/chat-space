@@ -12,7 +12,7 @@ gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
+# Use SCSS for stylesheet
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -67,3 +67,4 @@ gem 'erb2haml'
 gem 'pry-byebug'
 gem 'carrierwave'
 gem 'mini_magick'
+gem "nokogiri", ">= 1.10.4"

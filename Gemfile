@@ -78,3 +78,4 @@ gem 'pry-byebug'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "nokogiri", ">= 1.10.4"
+gem 'fog-aws'
